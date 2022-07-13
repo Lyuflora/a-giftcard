@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"/>
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="icon" type="image/x-icon" href="icon.png">
+    <title>Vertical Slider</title>
+</head>
+<body>
+<div class="slider-container">
+
+    <div class="right-slide">
+        <div class="gift-bg gift-bg__0"></div>
+        <div class="gift-bg gift-bg__1"></div>
+        <div class="gift-bg gift-bg__2"></div>
+    </div>
+    <div class="left-slide">
+        <div class="gift-frame gift-a">
+            <div class="gift-info">
+                <h1>我们在起床之前征服了整个世界
+                </h1>
+                <p> 世界是给那些天生为了征服它的人的，</br>
+                    不是给那些做梦征服的人的，即使他们正确。<br>
+                    而我在梦中比拿破仑做得更多。<br>
+                    相对于基督我在我假设的胸膛里怀抱着更多的人性。<br>
+                    我秘密地创造了哲学就好像康德从来没写过。
+                </p>
+                <button class="gift-open-btn show-modal"><i class="arrow right"></i></button>
+            </div>
+        </div>
+        <div class="gift-frame gift-b">
+            <div class="gift-info">
+                <h1>白天阳光灿烂，或细雨绵绵</h1>
+                <p>或风暴大作就像世界的末日，
+                    温和的下午，我从窗子里<br>
+                    兴致盎然地注视着经过的人，<br>
+                    我把最后一缕友好的目光投给树木的寂静，<br>
+                    然后关上窗子，点燃灯盏，<br>
+                    什么都不读，什么都不想，也不去睡觉，<br>
+                    只去感受生命在我体内流淌就像河水流过河床，<br>
+                    外面一片寂然，仿佛一位熟睡的神祇。</p>
+                <a href="gifts/Pessoa.pdf" download="apple">
+                    <button id="book" class="gift-open-btn "><i class="arrow right"></i></button>
+                </a>
+            </div>
+        </div>
+        <div class="gift-frame gift-start">
+            <div class="gift-info">
+                <h1>轻轻，轻轻，又轻轻，</h1>
+                <p>一阵风轻轻地吹来，<br>
+                    又一贯地轻轻吹过。<br>
+                    而我不知道我在想什么，<br>
+                    我也不想知道。</p>
+                <button class="gift-open-btn show-modal"><i class="arrow right"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal hidden">
+        <button class="close-modal">&times;</button>
+        <h1>🍻你找到了礼物</h1>
+        <p class="modal-detail">
+            ~
+        </p>
+        <iframe id="my_iframe" style="display:none;"></iframe>
+    </div>
+    <div class="overlay hidden"></div>
+    <div class="action-buttons">
+        <button class="down-button">
+            <i class="fas fa-arrow-down"></i>
+        </button>
+        <button class="up-button">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+<script>
+    function download(filename, textInput) {
+
+        var element = document.createElement('a');
+        element.setAttribute('href', 'data:text/plain;charset=utf-8, ' + encodeURIComponent(textInput));
+        element.setAttribute('download', filename);
+        document.body.appendChild(element);
+        element.click();
+        //document.body.removeChild(element);
+    }
+
+    document.getElementById("book")
+        .addEventListener("click", function () {
+            var text = document.getElementById("text").value;
+            var filename = "output.txt";
+            download(filename, text);
+        }, false);
+</script>
+</body>
+</html>
